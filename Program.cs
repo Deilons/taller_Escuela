@@ -60,7 +60,7 @@ administradorApp.AgregarEstudiante(new Estudiante()
 {
     Id = 1,
     Nombre = "Maria",
-    Apellidos = "Gonzalez",
+    Apellidos = "berez",
     TipoDocumento = "DNI",
     NroDocumento = "12345678",
     Email = "m@m.com",
@@ -89,7 +89,7 @@ administradorApp.AgregarEstudiante(new Estudiante()
 {
     Id = 3,
     Nombre = "luis",
-    Apellidos = "Gonzalez",
+    Apellidos = "aonzalez",
     TipoDocumento = "DNI",
     NroDocumento = "12345678",
     Email = "m@m.com",
@@ -104,7 +104,6 @@ administradorApp.Estudiantes[0].CalcularPromedio();
 Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
 */
 
-administradorApp.FiltrarEdadEstudiantes();
-
+administradorApp.ObtenerSueldos();
 
 

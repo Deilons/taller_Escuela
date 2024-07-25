@@ -84,11 +84,42 @@ public class AdministradorApp
         {
             if (e.CalcularEdad() > 16)
             {
-                Console.WriteLine(" ");
-                e.MostrarDetalles();
+                Console.WriteLine($@"
+                Nombre: {e.Nombre}
+                Apellidos: {e.Apellidos}
+                Edad: {e.CalcularEdad()}
+                ");
+                
             }
         }
     }
+
+    //lista de estudiantes ordenada por apellido en orden ascendente
+
+    public void EstudiantesPorApellido()
+    {
+
+        foreach (Estudiante e in Estudiantes.OrderBy(x => x.Apellidos))
+        {
+            Console.WriteLine($@"
+            Nombre: {e.Nombre}
+            Apellidos: {e.Apellidos}
+            Edad: {e.CalcularEdad()}
+            ");
+        }
+    }
+
+    //obtener sueldo total de todos los profesores
+    public void ObtenerSueldos()
+    {   
+        double totalSueldos = 0;
+        foreach (Profesor p in Profesores)
+        {
+            totalSueldos += p.Sueldo;
+        }
+        Console.WriteLine($"Sueldos totales: {totalSueldos}");
+    }
+
 
 
 }
