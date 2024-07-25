@@ -63,5 +63,32 @@ public class AdministradorApp
             }
         }
     }
+    //lista de profesores que enseñan más de un curso.
+
+    public void ObtenerProfesoresConMasCursos()
+    {
+        foreach (Profesor p in Profesores)
+        {
+            if (p.Cursos.Count > 1)
+            {
+                Console.WriteLine(" ");
+                p.MostrarDetalles();
+            }
+        }
+    }
+    //Filtrar la lista de estudiantes para obtener solo aquellos cuya edad sea mayor a 16 años.
+
+    public void FiltrarEdadEstudiantes()
+    {
+        foreach (Estudiante e in Estudiantes)
+        {
+            if (e.CalcularEdad() > 16)
+            {
+                Console.WriteLine(" ");
+                e.MostrarDetalles();
+            }
+        }
+    }
+
 
 }

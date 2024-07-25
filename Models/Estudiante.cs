@@ -27,6 +27,7 @@ public class Estudiante : Persona
         Telefono = string.Empty;
         NombreAcudiente = string.Empty;
         CursoActual = string.Empty;
+        FechaNacimiento = DateOnly.FromDateTime(DateTime.Now);
         Calificaciones = new List<double>();
     }   
 
@@ -36,6 +37,7 @@ public class Estudiante : Persona
         base.MostrarDetalles();
         Console.WriteLine($"NombreAcudiente: {NombreAcudiente}");
         Console.WriteLine($"CursoActual: {CursoActual}");
+        Console.WriteLine($"FechaNacimiento: {FechaNacimiento}");
         Console.Write("Calificaciones: ");
         foreach (double cal in Calificaciones)
         {
