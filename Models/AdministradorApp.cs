@@ -5,40 +5,63 @@ using System.Threading.Tasks;
 
 namespace taller_Escuela.Models;
 
-    public class AdministradorApp
+public class AdministradorApp
+{
+    public List<Profesor> Profesores { get; set; }
+    public List<Estudiante> Estudiantes { get; set; }
+
+    // constructor
+    public AdministradorApp()
     {
-        public List<Profesor> Profesores { get; set; }
-        public List<Estudiante> Estudiantes { get; set; }
+        Profesores = new List<Profesor>();
+        Estudiantes = new List<Estudiante>();
+    }
 
-        public AdministradorApp()
+    // Metodos
+
+    // AgregarProfesor
+
+    public void AgregarProfesor(Profesor p)
+    {
+        Profesores.Add(p);
+    }
+
+    // AgregarEstudiante
+    public void AgregarEstudiante(Estudiante e)
+    {
+        Estudiantes.Add(e);
+    }
+
+    // Mostrar Estudiantes
+    public void MostrarEstudiantes()
+    {
+        foreach (Estudiante e in Estudiantes)
         {
-            Profesores = new List<Profesor>();
-            Estudiantes = new List<Estudiante>();
+            e.MostrarDetalles();
         }
+    }
 
-        public void AgregarProfesor(Profesor p)
+    // Mostrar Profesores
+    public void MostrarProfesores()
+    {
+        foreach (Profesor p in Profesores)
         {
-            Profesores.Add(p);
+            p.MostrarDetalles();
         }
+    }
 
-        public void AgregarEstudiante(Estudiante e)
+    // mostrar estudiantes con un promedio de calificaciones superiora 8.5
+    public void MostrarPromedioSuperior()
+    {
+        foreach (Estudiante e in Estudiantes)
         {
-            Estudiantes.Add(e);
-        }
-
-        public void MostrarEstudiantes()
-        {
-            foreach (Estudiante e in Estudiantes)
-            {
+            double promedio = e.CalcularPromedio();
+            if (promedio > 8.5)
+            {   
+                Console.WriteLine(" ");
                 e.MostrarDetalles();
             }
         }
-
-        public void MostrarProfesores()
-        {
-            foreach (Profesor p in Profesores)
-            {
-                p.MostrarDetalles();
-            }
-        }
     }
+
+}

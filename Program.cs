@@ -1,5 +1,7 @@
 ﻿using taller_Escuela.Models;
 
+Console.Clear();
+
 var administradorApp = new AdministradorApp();
 
 administradorApp.AgregarProfesor(new Profesor()
@@ -16,12 +18,12 @@ administradorApp.AgregarProfesor(new Profesor()
     FechaContrato = new DateTime(2021, 11, 11),
     Cursos = new List<string> { "Programacion", "Ingles" }
 });
-
+/*
 administradorApp.MostrarProfesores();
 
 
 administradorApp.Profesores[0].ObtenerSueldo();
-
+*/
 Console.WriteLine("-----------------------");
 
 administradorApp.AgregarEstudiante(new Estudiante()
@@ -35,12 +37,42 @@ administradorApp.AgregarEstudiante(new Estudiante()
     Telefono = "123456789",
     NombreAcudiente = "Pedro",
     CursoActual = "Programacion",
-    Calificaciones = new List<double> { 8.5, 9.0, 7.5 }
+    Calificaciones = new List<double> { 8.5, 9.0, 9.5 }
 });
 
-administradorApp.MostrarEstudiantes();
-
-Console.WriteLine("-----------------------");
-
-
+administradorApp.AgregarEstudiante(new Estudiante()
+{
+    Id = 2,
+    Nombre = "antonio",
+    Apellidos = "Gonzalez",
+    TipoDocumento = "DNI",
+    NroDocumento = "12345678",
+    Email = "m@m.com",
+    Telefono = "123456789",
+    NombreAcudiente = "Pedro",
+    CursoActual = "Programacion",
+    Calificaciones = new List<double> { 8.5, 9.0, 9.5 }
+});
+administradorApp.AgregarEstudiante(new Estudiante()
+{
+    Id = 3,
+    Nombre = "luis",
+    Apellidos = "Gonzalez",
+    TipoDocumento = "DNI",
+    NroDocumento = "12345678",
+    Email = "m@m.com",
+    Telefono = "123456789",
+    NombreAcudiente = "Pedro",
+    CursoActual = "Programacion",
+    Calificaciones = new List<double> { 4.5, 4.0, 6.5 }
+});
+/*
 administradorApp.Estudiantes[0].CalcularPromedio();
+Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
+*/
+administradorApp.MostrarPromedioSuperior();
+
+
+
+
+

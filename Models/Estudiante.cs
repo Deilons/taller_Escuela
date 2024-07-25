@@ -36,13 +36,18 @@ public class Estudiante : Persona
         base.MostrarDetalles();
         Console.WriteLine($"NombreAcudiente: {NombreAcudiente}");
         Console.WriteLine($"CursoActual: {CursoActual}");
-        Console.WriteLine($"Calificaciones: {Calificaciones}");
+        Console.Write("Calificaciones: ");
+        foreach (double cal in Calificaciones)
+        {
+            Console.Write(cal + ", ");
+        }
+        Console.WriteLine();
     }
 
-    public void CalcularPromedio()
+    public double CalcularPromedio()
     {
         double promedio = Calificaciones.Sum() / Calificaciones.Count;
-        Console.WriteLine($"Promedio: {promedio}");
+        return promedio;
     }
 
     public int CalcularEdad()
