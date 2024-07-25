@@ -189,6 +189,27 @@ public class AdministradorApp
             }
         }
     }
+    // Obtener la lista de asignaturas únicas que se imparten en la escuela.
+
+    public void AsignaturasUnicas()
+    {
+        List<string> asignaturasUnicas = new List<string>();
+        foreach (Profesor p in Profesores)
+        {
+            foreach (string c in p.Cursos)
+            {
+                if (!asignaturasUnicas.Contains(c))
+                {
+                    asignaturasUnicas.Add(c);
+                }
+            }
+        }
+        Console.WriteLine("Asignaturas unicas:");
+        foreach (string c in asignaturasUnicas)
+        {
+            Console.WriteLine(c);
+        }
+    }
 
 
 }

@@ -104,6 +104,6 @@ administradorApp.Estudiantes[0].CalcularPromedio();
 Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
 */
 
-administradorApp.ProfesoresConMasDe10Años();
+administradorApp.AsignaturasUnicas();
 
 
