@@ -30,7 +30,7 @@ administradorApp.AgregarProfesor(new Profesor()
     Telefono = "123456789",
     Asignatura = "Programacion",
     Sueldo = 5000,
-    FechaContrato = new DateTime(2021, 11, 11),
+    FechaContrato = new DateTime(2010, 11, 11),
     Cursos = new List<string> { "Programacion", "Ingles" }
 });
 
@@ -104,6 +104,6 @@ administradorApp.Estudiantes[0].CalcularPromedio();
 Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
 */
 
-administradorApp.NotaMayorPorCurso();
+administradorApp.ProfesoresConMasDe10Años();
 
 

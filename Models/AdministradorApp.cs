@@ -104,7 +104,7 @@ public class AdministradorApp
             Console.WriteLine($@"
             Nombre: {e.Nombre}
             Apellidos: {e.Apellidos}
-            Edad: {e.CalcularEdad()}
+            Edad: {e.CalcularEdad() + " años"}
             ");
         }
     }
@@ -122,52 +122,73 @@ public class AdministradorApp
     //estudiante con calificacion mas alta en su curso actual
 
     public void NotaMayorPorCurso()
-{
-    Estudiante? estudianteEncontrado = null;
-    string curso = Console.ReadLine();
-
-    double notaMayor = double.MinValue;
-    bool encontrado = false;
-
-    if (string.IsNullOrWhiteSpace(curso))
     {
-        Console.WriteLine("Por favor ingrese un curso, Quiere volver a intentar? s/n");
-        string respuesta = Console.ReadLine();
-        if (respuesta == "s")
+        Estudiante? estudianteEncontrado = null;
+
+        Console.WriteLine("Ingrese el curso: ");
+        string curso = Console.ReadLine();
+
+        double notaMayor = double.MinValue;
+        bool encontrado = false;
+
+        if (string.IsNullOrWhiteSpace(curso))
         {
-            NotaMayorPorCurso();
+            Console.WriteLine("Por favor ingrese un curso, Quiere volver a intentar? s/n");
+            string respuesta = Console.ReadLine();
+            if (respuesta == "s")
+            {
+                NotaMayorPorCurso();
+            }
+            else
+            {
+                return;
+            }
+
         }
         else
         {
-            return;
-        }
-
-    }
-    else
-    {
-        foreach (Estudiante e in Estudiantes)
-        {
-            double nota = e.Calificaciones.Max();
-            if (curso == e.CursoActual && nota > notaMayor)
+            foreach (Estudiante e in Estudiantes)
             {
-                notaMayor = nota;
-                encontrado = true;
-                estudianteEncontrado = e;
+                double nota = e.Calificaciones.Max();
+                if (curso == e.CursoActual && nota > notaMayor)
+                {
+                    notaMayor = nota;
+                    encontrado = true;
+                    estudianteEncontrado = e;
+                }
             }
-        }
 
-        if (encontrado) 
-        {
-            Console.WriteLine($@"
+            if (encontrado)
+            {
+                Console.WriteLine($@"
             Nombre: {estudianteEncontrado.Nombre}
             Apellidos: {estudianteEncontrado.Apellidos}
             Nota: {notaMayor}
             ");
-        }
-        else
-        {
-            Console.WriteLine("No se encontró ningún estudiante con la nota más alta en el curso especificado.");
+            }
+            else
+            {
+                Console.WriteLine("No se encontró ningún estudiante con la nota más alta en el curso especificado.");
+            }
         }
     }
-}
+    //Filtrar los profesores que tienen más de 10 años de antigüedad en la institución.
+
+    public void ProfesoresConMasDe10Años()
+    {   
+        foreach (Profesor p in Profesores)
+        {
+            if (p.CalcularAntiguedad() > 10)
+            {
+                Console.WriteLine($@"
+                Nombre: {p.Nombre}
+                Apellidos: {p.Apellidos}
+                antiguedad: {p.CalcularAntiguedad() + " años"}
+                ");
+
+            }
+        }
+    }
+
+
 }

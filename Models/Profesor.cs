@@ -38,18 +38,18 @@ public class Profesor : Persona
         Console.WriteLine($"Asignatura: {Asignatura}");
         Console.WriteLine($"Sueldo: {Sueldo}");
         Console.WriteLine($"FechaContrato: {FechaContrato}");
-        Console.Write($"Cursos: ");
+        Console.WriteLine($"Cursos: ");
         foreach (string c in Cursos)
         {
             Console.Write(c + ", ");
         }
         Console.WriteLine();
     }
-    public void CalcularAntiguedad()
-    {
-        int antiguedad = DateTime.Now.Year - FechaContrato.Year;
-        Console.WriteLine($"Antiguedad: {antiguedad}");
-    }
+    public int CalcularAntiguedad()
+{
+    int antiguedad = DateTime.Now.Year - FechaContrato.Year;
+    return antiguedad;
+}
 
     public void ObtenerSueldo()
     {
