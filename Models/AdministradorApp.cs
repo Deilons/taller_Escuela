@@ -57,7 +57,7 @@ public class AdministradorApp
         {
             double promedio = e.CalcularPromedio();
             if (promedio > 8.5)
-            {   
+            {
                 Console.WriteLine(" ");
                 e.MostrarDetalles();
             }
@@ -89,7 +89,7 @@ public class AdministradorApp
                 Apellidos: {e.Apellidos}
                 Edad: {e.CalcularEdad()}
                 ");
-                
+
             }
         }
     }
@@ -111,7 +111,7 @@ public class AdministradorApp
 
     //obtener sueldo total de todos los profesores
     public void ObtenerSueldos()
-    {   
+    {
         double totalSueldos = 0;
         foreach (Profesor p in Profesores)
         {
@@ -119,7 +119,55 @@ public class AdministradorApp
         }
         Console.WriteLine($"Sueldos totales: {totalSueldos}");
     }
+    //estudiante con calificacion mas alta en su curso actual
 
+    public void NotaMayorPorCurso()
+{
+    Estudiante? estudianteEncontrado = null;
+    string curso = Console.ReadLine();
 
+    double notaMayor = double.MinValue;
+    bool encontrado = false;
 
+    if (string.IsNullOrWhiteSpace(curso))
+    {
+        Console.WriteLine("Por favor ingrese un curso, Quiere volver a intentar? s/n");
+        string respuesta = Console.ReadLine();
+        if (respuesta == "s")
+        {
+            NotaMayorPorCurso();
+        }
+        else
+        {
+            return;
+        }
+
+    }
+    else
+    {
+        foreach (Estudiante e in Estudiantes)
+        {
+            double nota = e.Calificaciones.Max();
+            if (curso == e.CursoActual && nota > notaMayor)
+            {
+                notaMayor = nota;
+                encontrado = true;
+                estudianteEncontrado = e;
+            }
+        }
+
+        if (encontrado) 
+        {
+            Console.WriteLine($@"
+            Nombre: {estudianteEncontrado.Nombre}
+            Apellidos: {estudianteEncontrado.Apellidos}
+            Nota: {notaMayor}
+            ");
+        }
+        else
+        {
+            Console.WriteLine("No se encontró ningún estudiante con la nota más alta en el curso especificado.");
+        }
+    }
+}
 }
