@@ -29,7 +29,7 @@ administradorApp.AgregarProfesor(new Profesor()
     Email = "p@p.com",
     Telefono = "123456789",
     Asignatura = "Programacion",
-    Sueldo = 5000,
+    Sueldo = 5030,
     FechaContrato = new DateTime(2010, 11, 11),
     Cursos = new List<string> { "Programacion", "Ingles" }
 });
@@ -44,7 +44,7 @@ administradorApp.AgregarProfesor(new Profesor()
     Email = "m@m.com",
     Telefono = "123456789",
     Asignatura = "Programacion",
-    Sueldo = 5000,
+    Sueldo = 5001,
     FechaContrato = new DateTime(2021, 11, 11),
     Cursos = new List<string> { "Programacion"}
 });
@@ -104,6 +104,6 @@ administradorApp.Estudiantes[0].CalcularPromedio();
 Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
 */
 
-administradorApp.AsignaturasUnicas();
+administradorApp.PromedioEdades();
 
 

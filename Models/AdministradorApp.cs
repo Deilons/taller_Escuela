@@ -50,33 +50,32 @@ public class AdministradorApp
         }
     }
 
-    // mostrar estudiantes con un promedio de calificaciones superiora 8.5
     public void MostrarPromedioSuperior()
     {
-        foreach (Estudiante e in Estudiantes)
+        var estudiantesConPromedioSuperior = Estudiantes
+            .Where(x => x.CalcularPromedio() > 8.5)
+            .Select(x => x)
+            .ToList();
+        Console.WriteLine("Estudiantes con promedio superior a 8.5:");
+        foreach (var e in estudiantesConPromedioSuperior)
         {
-            double promedio = e.CalcularPromedio();
-            if (promedio > 8.5)
-            {
-                Console.WriteLine(" ");
-                e.MostrarDetalles();
-            }
+            Console.WriteLine(e);
         }
     }
-    //lista de profesores que enseñan más de un curso.
 
     public void ObtenerProfesoresConMasCursos()
     {
-        foreach (Profesor p in Profesores)
+        var profesoresConMasCursos = Profesores
+            .GroupBy(x => x)
+            .Where(x => x.Count() > 1)
+            .Select(x => x.Key)
+            .ToList();
+        Console.WriteLine("Profesores con más de un curso:");
+        foreach (var p in profesoresConMasCursos)
         {
-            if (p.Cursos.Count > 1)
-            {
-                Console.WriteLine(" ");
-                p.MostrarDetalles();
-            }
+            Console.WriteLine(p);
         }
     }
-    //Filtrar la lista de estudiantes para obtener solo aquellos cuya edad sea mayor a 16 años.
 
     public void FiltrarEdadEstudiantes()
     {
@@ -94,8 +93,6 @@ public class AdministradorApp
         }
     }
 
-    //lista de estudiantes ordenada por apellido en orden ascendente
-
     public void EstudiantesPorApellido()
     {
 
@@ -109,17 +106,11 @@ public class AdministradorApp
         }
     }
 
-    //obtener sueldo total de todos los profesores
     public void ObtenerSueldos()
     {
-        double totalSueldos = 0;
-        foreach (Profesor p in Profesores)
-        {
-            totalSueldos += p.Sueldo;
-        }
-        Console.WriteLine($"Sueldos totales: {totalSueldos}");
+        double sueldos = Profesores.Sum(x => x.Sueldo);
+        Console.WriteLine($"Sueldos totales: {sueldos}");
     }
-    //estudiante con calificacion mas alta en su curso actual
 
     public void NotaMayorPorCurso()
     {
@@ -172,7 +163,6 @@ public class AdministradorApp
             }
         }
     }
-    //Filtrar los profesores que tienen más de 10 años de antigüedad en la institución.
 
     public void ProfesoresConMasDe10Años()
     {   
@@ -189,7 +179,6 @@ public class AdministradorApp
             }
         }
     }
-    // Obtener la lista de asignaturas únicas que se imparten en la escuela.
 
     public void AsignaturasUnicas()
     {
@@ -210,6 +199,72 @@ public class AdministradorApp
             Console.WriteLine(c);
         }
     }
+    
+    public void AcudienteEsMaria()
+    {
+        foreach (Estudiante e in Estudiantes)
+        {
+            if (e.NombreAcudiente.Contains("Maria"))
+            {
+                Console.WriteLine($@"
+                Nombre: {e.Nombre}
+                Apellidos: {e.Apellidos}
+                Nombre Acudiente: {e.NombreAcudiente}
+                ");
+            }
+        }
+    }
+    public void ListaSalariosDescencientes()
+    {
+        foreach (Profesor p in Profesores.OrderBy(x => x.Sueldo))
+        {
+            Console.WriteLine($@"
+            Nombre: {p.Nombre}
+            Apellidos: {p.Apellidos}
+            Sueldo: {p.Sueldo}
+            ");
+        }
+    }
 
+    public void PromedioEdades()
+    {
+        double promedio = Estudiantes.Average(x => x.CalcularEdad());
+        Console.WriteLine($"Promedio de edades: {promedio}");
+    }
+
+    public void ProfesoresMatematicas()
+    {
+        foreach (Profesor p in Profesores)
+        {
+            if (p.Cursos.Contains("Matemáticas"))
+            {
+                Console.WriteLine($@"
+                Nombre: {p.Nombre}
+                Apellidos: {p.Apellidos}
+                Cursos: {p.Cursos}
+                ");
+            }
+        }
+    }
+
+    public void CursosConMasDeTresCalificaciones()
+    {
+        var cursosConMasDeTresCalificaciones = Estudiantes
+            .SelectMany(x => x.CursoActual)
+            .GroupBy(x => x)
+            .Where(x => x.Count() > 3)
+            .Select(x => x.Key)
+            .ToList();
+        Console.WriteLine("Cursos con más de tres calificaciones:");
+        foreach (var c in cursosConMasDeTresCalificaciones)
+        {
+            Console.WriteLine(c);
+        }
+    }
+    public void antiguedadPromedio()
+    {
+        double promedio = Profesores.Average(x => x.CalcularAntiguedad());
+        Console.WriteLine($"Promedio de antiguedad: {promedio}");
+    }
 
 }
