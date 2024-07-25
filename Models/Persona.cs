@@ -15,6 +15,17 @@ public class Persona
     public string Email { get; set; }
     public string Telefono { get; set; }
 
+    public Persona()
+    {
+        Id = 0;
+        Nombre = string.Empty;
+        Apellidos = string.Empty;
+        TipoDocumento = string.Empty;
+        NroDocumento = string.Empty;
+        Email = string.Empty;
+        Telefono = string.Empty;
+    }
+
     public virtual void MostrarDetalles()
     {
         Console.WriteLine($"Id: {Id}");
