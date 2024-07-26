@@ -35,15 +35,18 @@ public class Estudiante : Persona
     public override void MostrarDetalles()
     {
         base.MostrarDetalles();
-        Console.WriteLine($"NombreAcudiente: {NombreAcudiente}");
-        Console.WriteLine($"CursoActual: {CursoActual}");
-        Console.WriteLine($"FechaNacimiento: {FechaNacimiento}");
-        Console.Write("Calificaciones: ");
-        foreach (double cal in Calificaciones)
-        {
-            Console.Write(cal + ", ");
-        }
-        Console.WriteLine();
+Console.WriteLine(
+    $@"
+╔════════════════════════════════════════════════╗
+║                  DETALLES                      ║
+╚════════════════════════════════════════════════╝
+    Nombre Acudiente: {NombreAcudiente}            
+    Curso Actual: {CursoActual}                    
+    Fecha Nacimiento: {FechaNacimiento}            
+    Calificaciones: {string.Join(", ", Calificaciones)}
+╚════════════════════════════════════════════════╝"
+);
+
     }
 
     public double CalcularPromedio()

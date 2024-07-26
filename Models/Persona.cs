@@ -27,14 +27,22 @@ public class Persona
     }
 
     public virtual void MostrarDetalles()
-    {
-        Console.WriteLine($"Id: {Id}");
-        Console.WriteLine($"Nombre: {Nombre}");
-        Console.WriteLine($"Apellidos: {Apellidos}");
-        Console.WriteLine($"TipoDocumento: {TipoDocumento}");
-        Console.WriteLine($"NroDocumento: {NroDocumento}");
-        Console.WriteLine($"Email: {Email}");
-        Console.WriteLine($"Telefono: {Telefono}");
+    {   
+        Console.WriteLine(
+    $@"
+╔════════════════════════════════════════════════╗
+║                   INFORMACIÓN                  ║
+╚════════════════════════════════════════════════╝
+    Id: {Id}                                       
+    Nombre: {Nombre}                               
+    Apellidos: {Apellidos}                         
+    TipoDocumento: {TipoDocumento}                 
+    NroDocumento: {NroDocumento}                   
+    Email: {Email}                                 
+    Teléfono: {Telefono}                          
+╚════════════════════════════════════════════════╝"
+);
+
     }
 
 }

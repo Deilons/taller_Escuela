@@ -35,14 +35,19 @@ public class Profesor : Persona
     public override void MostrarDetalles()
     {
         base.MostrarDetalles();
-        Console.WriteLine($"Asignatura: {Asignatura}");
-        Console.WriteLine($"Sueldo: {Sueldo}");
-        Console.WriteLine($"FechaContrato: {FechaContrato}");
-        Console.WriteLine($"Cursos: ");
-        foreach (string c in Cursos)
-        {
-            Console.Write(c + ", ");
-        }
+Console.WriteLine(
+    $@"
+╔════════════════════════════════════════════════╗
+║                  DETALLES                      ║
+╚════════════════════════════════════════════════╝
+    Asignatura: {Asignatura}                      
+    Sueldo: {Sueldo}                               
+    FechaContrato: {FechaContrato}                 
+    Cursos: {string.Join(", ", Cursos)}            
+╚════════════════════════════════════════════════╝
+"
+);
+
         Console.WriteLine();
     }
     public int CalcularAntiguedad()

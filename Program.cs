@@ -9,14 +9,14 @@ administradorApp.AgregarProfesor(new Profesor()
     Id = 1,
     Nombre = "Juan",
     Apellidos = "Perez",
-    TipoDocumento = "DNI",
+    TipoDocumento = "CC",
     NroDocumento = "12345678",
-    Email = "j@j.com",
+    Email = "juanPerez@gmail.com",
     Telefono = "123456789",
-    Asignatura = "Programacion",
-    Sueldo = 5000,
-    FechaContrato = new DateTime(2021, 11, 11),
-    Cursos = new List<string> { "Programacion", "Ingles" }
+    Asignatura = "Matematicas",
+    Sueldo = 9000,
+    FechaContrato = new DateTime(2019, 3, 11),
+    Cursos = new List<string> {"Matematicas", "Fisica", "Biologia"}
 });
 
 administradorApp.AgregarProfesor(new Profesor()
@@ -24,14 +24,14 @@ administradorApp.AgregarProfesor(new Profesor()
     Id = 2,
     Nombre = "Pedro",
     Apellidos = "Lopez",
-    TipoDocumento = "DNI",
+    TipoDocumento = "CC",
     NroDocumento = "12345678",
-    Email = "p@p.com",
+    Email = "pedroLopez@gmail.com",
     Telefono = "123456789",
-    Asignatura = "Programacion",
-    Sueldo = 5030,
+    Asignatura = "Historia",
+    Sueldo = 6000,
     FechaContrato = new DateTime(2010, 11, 11),
-    Cursos = new List<string> { "Programacion", "Ingles" }
+    Cursos = new List<string> {"Historia", "Lengua"}
 });
 
 administradorApp.AgregarProfesor(new Profesor()
@@ -39,35 +39,29 @@ administradorApp.AgregarProfesor(new Profesor()
     Id = 3,
     Nombre = "Maria",
     Apellidos = "Gonzalez",
-    TipoDocumento = "DNI",
+    TipoDocumento = "CC",
     NroDocumento = "12345678",
-    Email = "m@m.com",
+    Email = "mariaGonzalez@gmail.com",
     Telefono = "123456789",
-    Asignatura = "Programacion",
-    Sueldo = 5001,
-    FechaContrato = new DateTime(2021, 11, 11),
-    Cursos = new List<string> { "Programacion"}
+    Asignatura = "Informática",
+    Sueldo = 5000,
+    FechaContrato = new DateTime(2021, 5, 1),
+    Cursos = new List<string> {"Informática"}
 });
-/*
-administradorApp.MostrarProfesores();
 
-
-administradorApp.Profesores[0].ObtenerSueldo();
-*/
-Console.WriteLine("-----------------------");
-
+// Estudiantes
 administradorApp.AgregarEstudiante(new Estudiante()
 {
     Id = 1,
     Nombre = "Maria",
-    Apellidos = "berez",
-    TipoDocumento = "DNI",
+    Apellidos = "Becerra",
+    TipoDocumento = "CC",
     NroDocumento = "12345678",
-    Email = "m@m.com",
+    Email = "MriaBecerra@gmail.com",
     Telefono = "123456789",
-    NombreAcudiente = "Pedro",
-    CursoActual = "Programacion",
-    FechaNacimiento = new DateOnly(2000, 1, 1),
+    NombreAcudiente = "Gregorio",
+    CursoActual = "Matematicas",
+    FechaNacimiento = new DateOnly(2006, 6, 1),
     Calificaciones = new List<double> { 8.5, 9.0, 9.5 }
 });
 
@@ -76,34 +70,182 @@ administradorApp.AgregarEstudiante(new Estudiante()
     Id = 2,
     Nombre = "antonio",
     Apellidos = "Gonzalez",
-    TipoDocumento = "DNI",
+    TipoDocumento = "TI",
     NroDocumento = "12345678",
-    Email = "m@m.com",
+    Email = "AntonioGonzalez@gmail.com",
     Telefono = "123456789",
     NombreAcudiente = "Pedro",
-    CursoActual = "Programacion",
-    FechaNacimiento = new DateOnly(2010, 1, 1),
-    Calificaciones = new List<double> { 8.5, 9.0, 9.5 }
+    CursoActual = "Historia",
+    FechaNacimiento = new DateOnly(2010, 9, 12),
+    Calificaciones = new List<double> { 2.0, 5.0, 3.5 }
 });
+
 administradorApp.AgregarEstudiante(new Estudiante()
 {
     Id = 3,
-    Nombre = "luis",
-    Apellidos = "aonzalez",
-    TipoDocumento = "DNI",
+    Nombre = "Luis",
+    Apellidos = "Antares",
+    TipoDocumento = "TI",
     NroDocumento = "12345678",
-    Email = "m@m.com",
+    Email = "LuisAntares@gmail.com",
     Telefono = "123456789",
-    NombreAcudiente = "Pedro",
-    CursoActual = "Programacion",
-    FechaNacimiento = new DateOnly(2010, 1, 1),
+    NombreAcudiente = "Alberto",
+    CursoActual = "Historia",
+    FechaNacimiento = new DateOnly(2009, 8, 10),
+    Calificaciones = new List<double> { 7.1, 8.0, 3.5 }
+});
+
+administradorApp.AgregarEstudiante(new Estudiante()
+{
+    Id = 4,
+    Nombre = "German",
+    Apellidos = "Rodriguez",
+    TipoDocumento = "CC",
+    NroDocumento = "12345678",
+    Email = "GermanRodriguez@gmail.com",
+    Telefono = "123456789",
+    NombreAcudiente = "Maria",
+    CursoActual = "Fisica",
+    FechaNacimiento = new DateOnly(2006, 10, 15),
     Calificaciones = new List<double> { 4.5, 4.0, 6.5 }
+});
+
+administradorApp.AgregarEstudiante(new Estudiante()
+{
+    Id = 5,
+    Nombre = "Carlos",
+    Apellidos = "Rodriguez",
+    TipoDocumento = "CC",
+    NroDocumento = "12345678",
+    Email = "CarlosRodriguez@gmail.com",
+    Telefono = "123456789",
+    NombreAcudiente = "Maria",
+    CursoActual = "Matematicas",
+    FechaNacimiento = new DateOnly(2006, 10, 3),
+    Calificaciones = new List<double> { 6.5, 7.9, 9.5 }
 });
 /*
 administradorApp.Estudiantes[0].CalcularPromedio();
 Console.WriteLine($"Promedio: " +administradorApp.Estudiantes[0].CalcularPromedio());
 */
 
-administradorApp.PromedioEdades();
+bool seguir = true;
+while (seguir)
+{   
+    Console.Clear();
 
+    administradorApp.InterfazVisual();
+    int opcion = Convert.ToInt32(Console.ReadLine());
+    switch (opcion)
+    {
+        case 1:
+            administradorApp.AgregarProfesor(new Profesor());
+            break;
+        case 2:
+            administradorApp.AgregarEstudiante(new Estudiante());
+            break;
+        case 3:
+            administradorApp.MostrarProfesores();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 4:
+            administradorApp.MostrarEstudiantes();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 5:
+            administradorApp.MostrarPromedioSuperior();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 6:
+            administradorApp.ObtenerProfesoresConMasCursos();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 7:
+            administradorApp.ProfesoresConMasDe10Años();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 8:
+            administradorApp.FiltrarEdadEstudiantes();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 9:
+            administradorApp.EstudiantesPorApellido();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 10:
+            administradorApp.ObtenerSueldos();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 11:
+            administradorApp.NotaMayorPorCurso();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 12:
+            administradorApp.NotaMayorPorCurso();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 13:
+            administradorApp.ObtenerProfesoresConMasCursos();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 14:
+            administradorApp.AsignaturasUnicas();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 15:
+            administradorApp.AcudienteEsMaria();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 16:
+            administradorApp.ListaSalariosDescencientes();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 17:
+            administradorApp.PromedioEdades();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 18:
+            administradorApp.ProfesoresMatematicas();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 19:
+            administradorApp.CursosConMasDeTresCalificaciones();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 20:
+            administradorApp.AntiguedadPromedio();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 21:
+            Console.WriteLine("Seguro que desea salir? s/n");
+            string respuesta = Console.ReadLine();
+            if (respuesta == "s")
+            {   
+                Console.WriteLine("Gracias por usar el sistema");
+                seguir = false;
+            }
+            break;
 
+        default:
+            Console.WriteLine("Por favor ingrese una opcion valida");
+            break;
+    }
+}

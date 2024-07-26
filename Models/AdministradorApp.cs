@@ -24,6 +24,7 @@ public class AdministradorApp
     public void AgregarProfesor(Profesor p)
     {
         Profesores.Add(p);
+
     }
 
     // AgregarEstudiante
@@ -32,26 +33,30 @@ public class AdministradorApp
         Estudiantes.Add(e);
     }
 
-    // Mostrar Estudiantes
-    public void MostrarEstudiantes()
-    {
-        foreach (Estudiante e in Estudiantes)
-        {
-            e.MostrarDetalles();
-        }
-    }
-
     // Mostrar Profesores
     public void MostrarProfesores()
     {
+        Console.Clear();
+
         foreach (Profesor p in Profesores)
         {
             p.MostrarDetalles();
         }
     }
 
+    public void MostrarEstudiantes()
+    {
+        Console.Clear();
+        foreach (Estudiante e in Estudiantes)
+        {
+            e.MostrarDetalles();
+        }
+    }
+
     public void MostrarPromedioSuperior()
     {
+        Console.Clear();
+
         var estudiantesConPromedioSuperior = Estudiantes
             .Where(x => x.CalcularPromedio() > 8.5)
             .Select(x => x)
@@ -65,6 +70,8 @@ public class AdministradorApp
 
     public void ObtenerProfesoresConMasCursos()
     {
+        Console.Clear();
+
         var profesoresConMasCursos = Profesores
             .GroupBy(x => x)
             .Where(x => x.Count() > 1)
@@ -79,6 +86,8 @@ public class AdministradorApp
 
     public void FiltrarEdadEstudiantes()
     {
+        Console.Clear();
+
         foreach (Estudiante e in Estudiantes)
         {
             if (e.CalcularEdad() > 16)
@@ -95,6 +104,7 @@ public class AdministradorApp
 
     public void EstudiantesPorApellido()
     {
+        Console.Clear();
 
         foreach (Estudiante e in Estudiantes.OrderBy(x => x.Apellidos))
         {
@@ -108,12 +118,16 @@ public class AdministradorApp
 
     public void ObtenerSueldos()
     {
+        Console.Clear();
+
         double sueldos = Profesores.Sum(x => x.Sueldo);
         Console.WriteLine($"Sueldos totales: {sueldos}");
     }
 
     public void NotaMayorPorCurso()
     {
+        Console.Clear();
+
         Estudiante? estudianteEncontrado = null;
 
         Console.WriteLine("Ingrese el curso: ");
@@ -165,7 +179,8 @@ public class AdministradorApp
     }
 
     public void ProfesoresConMasDe10Años()
-    {   
+    {
+        Console.Clear();
         foreach (Profesor p in Profesores)
         {
             if (p.CalcularAntiguedad() > 10)
@@ -182,6 +197,8 @@ public class AdministradorApp
 
     public void AsignaturasUnicas()
     {
+        Console.Clear();
+
         List<string> asignaturasUnicas = new List<string>();
         foreach (Profesor p in Profesores)
         {
@@ -199,9 +216,11 @@ public class AdministradorApp
             Console.WriteLine(c);
         }
     }
-    
+
     public void AcudienteEsMaria()
     {
+        Console.Clear();
+
         foreach (Estudiante e in Estudiantes)
         {
             if (e.NombreAcudiente.Contains("Maria"))
@@ -216,6 +235,8 @@ public class AdministradorApp
     }
     public void ListaSalariosDescencientes()
     {
+        Console.Clear();
+
         foreach (Profesor p in Profesores.OrderBy(x => x.Sueldo))
         {
             Console.WriteLine($@"
@@ -228,12 +249,15 @@ public class AdministradorApp
 
     public void PromedioEdades()
     {
+        Console.Clear();
+
         double promedio = Estudiantes.Average(x => x.CalcularEdad());
         Console.WriteLine($"Promedio de edades: {promedio}");
     }
 
     public void ProfesoresMatematicas()
     {
+        Console.Clear();
         foreach (Profesor p in Profesores)
         {
             if (p.Cursos.Contains("Matemáticas"))
@@ -249,6 +273,8 @@ public class AdministradorApp
 
     public void CursosConMasDeTresCalificaciones()
     {
+        Console.Clear();
+
         var cursosConMasDeTresCalificaciones = Estudiantes
             .SelectMany(x => x.CursoActual)
             .GroupBy(x => x)
@@ -261,10 +287,50 @@ public class AdministradorApp
             Console.WriteLine(c);
         }
     }
-    public void antiguedadPromedio()
+    public void AntiguedadPromedio()
     {
+        Console.Clear();
+
         double promedio = Profesores.Average(x => x.CalcularAntiguedad());
         Console.WriteLine($"Promedio de antiguedad: {promedio}");
+    }
+
+    public void InterfazVisual()
+    {
+
+        Console.WriteLine(
+@"
+╔══════════════════════════════════════════════════╗
+║                 MENU DE OPCIONES                 ║                   
+║                    COLEGIO                       ║
+║                                                  ║
+║           1. Agregar Profesor                    ║
+║           2. Agregar Estudiante                  ║
+║           3. Mostrar Profesores                  ║
+║           4. Mostrar Estudiantes                 ║
+║           5. Mostrar Promedio                    ║
+║           6. Mostrar Promedio por Curso          ║
+║           7. Mostrar Profesores con 10 años exp  ║
+║           8. Filtrar Estudiantes por Edad        ║
+║           9. Estudiantes por Apellidos           ║
+║          10. Obtener Sueldos                     ║
+║          11. Nota Mayor por Cursos               ║
+║          12. Profesores con más de 10 años       ║
+║          13. Asignaturas Únicas                  ║
+║          14. Acudiente es Maria                  ║
+║          15. Lista de Salarios Descendientes     ║
+║          16. Promedio de Edades                  ║
+║          17. Profesores de Matemáticas           ║
+║          18. Cursos con más de 3 Calificaciones  ║
+║          19. Antigüedad Promedio                 ║
+║          20. Salir                               ║
+╚══════════════════════════════════════════════════╝
+            Opción: "
+);
+
+
+
+
     }
 
 }
