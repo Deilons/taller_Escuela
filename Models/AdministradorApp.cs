@@ -543,7 +543,7 @@ public class AdministradorApp
 ║           3. Mostrar Profesores                  ║
 ║           4. Mostrar Estudiantes                 ║
 ║           5. Mostrar Promedio                    ║
-║           6. Mostrar Profesores con 10 años exp  ║
+║           6. Mostrar Profesores con mas cursos   ║
 ║           7. Filtrar Estudiantes por Edad        ║
 ║           8. Estudiantes por Apellidos           ║
 ║           9. Obtener Sueldos                     ║
