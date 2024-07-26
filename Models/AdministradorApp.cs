@@ -143,7 +143,11 @@ public class AdministradorApp
             Console.WriteLine(" ");
 
             AgregarProfesor(nuevoProfesor);
+
+            datosValidos = true;
+            
         }
+        
     }
     public void AgregarEstudianteNuevo()
     {
@@ -252,6 +256,8 @@ public class AdministradorApp
             Console.WriteLine(" ");
 
             AgregarEstudiante(nuevoEstudiante);
+
+            datosValidos = true;
         }
     }
 
