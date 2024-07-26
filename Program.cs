@@ -165,87 +165,75 @@ while (seguir)
             Console.ReadLine();
             break;
         case 7:
-            administradorApp.ProfesoresConMasDe10Años();
-            Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadLine();
-            break;
-        case 8:
             administradorApp.FiltrarEdadEstudiantes();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 9:
+        case 8:
             administradorApp.EstudiantesPorApellido();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 10:
+        case 9:
             administradorApp.ObtenerSueldos();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 11:
+        case 10:
             administradorApp.NotaMayorPorCurso();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+            break;
+        case 11:
+            administradorApp.ProfesoresConMasDe10Años();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
         case 12:
-            administradorApp.NotaMayorPorCurso();
-            Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadLine();
-            break;
-        case 13:
-            administradorApp.ObtenerProfesoresConMasCursos();
-            Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadLine();
-            break;
-        case 14:
             administradorApp.AsignaturasUnicas();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 15:
+        case 13:
             administradorApp.AcudienteEsMaria();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 16:
+        case 14:
             administradorApp.ListaSalariosDescencientes();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 17:
+        case 15:
             administradorApp.PromedioEdades();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 18:
+        case 16:
             administradorApp.ProfesoresMatematicas();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 19:
+        case 17:
             administradorApp.CursosConMasDeTresCalificaciones();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 20:
+        case 18:
             administradorApp.AntiguedadPromedio();
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
             break;
-        case 21:
-            Console.WriteLine("Seguro que desea salir? s/n");
+        case 19:
+            Console.WriteLine("¿Desea salir? s/n");
             string respuesta = Console.ReadLine();
             if (respuesta == "s")
-            {   
-                Console.WriteLine("Gracias por usar el sistema");
+            {
                 seguir = false;
             }
             break;
-
         default:
-            Console.WriteLine("Por favor ingrese una opcion valida");
+            Console.WriteLine("Opcion no valida");
             break;
     }
 }

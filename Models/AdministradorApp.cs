@@ -309,21 +309,20 @@ public class AdministradorApp
 ║           3. Mostrar Profesores                  ║
 ║           4. Mostrar Estudiantes                 ║
 ║           5. Mostrar Promedio                    ║
-║           6. Mostrar Promedio por Curso          ║
-║           7. Mostrar Profesores con 10 años exp  ║
-║           8. Filtrar Estudiantes por Edad        ║
-║           9. Estudiantes por Apellidos           ║
-║          10. Obtener Sueldos                     ║
-║          11. Nota Mayor por Cursos               ║
-║          12. Profesores con más de 10 años       ║
-║          13. Asignaturas Únicas                  ║
-║          14. Acudiente es Maria                  ║
-║          15. Lista de Salarios Descendientes     ║
-║          16. Promedio de Edades                  ║
-║          17. Profesores de Matemáticas           ║
-║          18. Cursos con más de 3 Calificaciones  ║
-║          19. Antigüedad Promedio                 ║
-║          20. Salir                               ║
+║           6. Mostrar Profesores con 10 años exp  ║
+║           7. Filtrar Estudiantes por Edad        ║
+║           8. Estudiantes por Apellidos           ║
+║           9. Obtener Sueldos                     ║
+║          10. Nota Mayor por Cursos               ║
+║          11. Profesores con más de 10 años       ║
+║          12. Asignaturas Únicas                  ║
+║          13. Acudiente es Maria                  ║
+║          14. Lista de Salarios Descendientes     ║
+║          15. Promedio de Edades                  ║
+║          16. Profesores de Matemáticas           ║
+║          17. Cursos con más de 3 Calificaciones  ║
+║          18. Antigüedad Promedio                 ║
+║          19. Salir                               ║
 ╚══════════════════════════════════════════════════╝
             Opción: "
 );
