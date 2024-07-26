@@ -1,4 +1,5 @@
 ﻿using taller_Escuela.Models;
+using System.Globalization;
 
 Console.Clear();
 
@@ -15,7 +16,7 @@ administradorApp.AgregarProfesor(new Profesor()
     Telefono = "123456789",
     Asignatura = "Matematicas",
     Sueldo = 9000,
-    FechaContrato = new DateTime(2019, 3, 11),
+    FechaContrato = new DateTime(2018, 5, 11),
     Cursos = new List<string> {"Matematicas", "Fisica", "Biologia"}
 });
 
@@ -23,14 +24,14 @@ administradorApp.AgregarProfesor(new Profesor()
 {   
     Id = 2,
     Nombre = "Pedro",
-    Apellidos = "Lopez",
+    Apellidos = "Sanchez",
     TipoDocumento = "CC",
     NroDocumento = "12345678",
     Email = "pedroLopez@gmail.com",
     Telefono = "123456789",
     Asignatura = "Historia",
     Sueldo = 6000,
-    FechaContrato = new DateTime(2010, 11, 11),
+    FechaContrato = new DateTime(2010, 3, 11),
     Cursos = new List<string> {"Historia", "Lengua"}
 });
 
@@ -45,7 +46,7 @@ administradorApp.AgregarProfesor(new Profesor()
     Telefono = "123456789",
     Asignatura = "Informática",
     Sueldo = 5000,
-    FechaContrato = new DateTime(2021, 5, 1),
+    FechaContrato = new DateTime(2020, 5, 1),
     Cursos = new List<string> {"Informática"}
 });
 
@@ -62,7 +63,7 @@ administradorApp.AgregarEstudiante(new Estudiante()
     NombreAcudiente = "Gregorio",
     CursoActual = "Matematicas",
     FechaNacimiento = new DateOnly(2006, 6, 1),
-    Calificaciones = new List<double> { 8.5, 9.0, 9.5 }
+    Calificaciones = new List<double> { 9.5, 9.0, 9.5 }
 });
 
 administradorApp.AgregarEstudiante(new Estudiante()
@@ -107,7 +108,7 @@ administradorApp.AgregarEstudiante(new Estudiante()
     NombreAcudiente = "Maria",
     CursoActual = "Fisica",
     FechaNacimiento = new DateOnly(2006, 10, 15),
-    Calificaciones = new List<double> { 4.5, 4.0, 6.5 }
+    Calificaciones = new List<double> { 4.5, 6.5 }
 });
 
 administradorApp.AgregarEstudiante(new Estudiante()
@@ -139,10 +140,12 @@ while (seguir)
     switch (opcion)
     {
         case 1:
-            administradorApp.AgregarProfesor(new Profesor());
+            administradorApp.AgregarProfesorNuevo();
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
             break;
         case 2:
-            administradorApp.AgregarEstudiante(new Estudiante());
+            administradorApp.AgregarEstudianteNuevo();
             break;
         case 3:
             administradorApp.MostrarProfesores();

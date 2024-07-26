@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace taller_Escuela.Models;
 
@@ -31,6 +33,226 @@ public class AdministradorApp
     public void AgregarEstudiante(Estudiante e)
     {
         Estudiantes.Add(e);
+    }
+    //agregar un profesor nuevo
+    public void AgregarProfesorNuevo()
+    {
+        Console.Clear();
+
+        bool datosValidos = false;
+        while (!datosValidos)
+        {
+            Console.WriteLine("Ingrese el ID del profesor (número entero):");
+            bool idValido = int.TryParse(Console.ReadLine(), out int id);
+            if (!idValido)
+            {
+                Console.WriteLine("El ID debe ser un número entero. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el nombre del profesor (texto):");
+            string nombre = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese los apellidos del profesor (texto):");
+            string apellidos = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(apellidos))
+            {
+                Console.WriteLine("Los apellidos no pueden estar vacíos. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el tipo de documento del profesor (texto):");
+            string tipoDocumento = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(tipoDocumento))
+            {
+                Console.WriteLine("El tipo de documento no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el número de documento del profesor (texto):");
+            string nroDocumento = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nroDocumento))
+            {
+                Console.WriteLine("El número de documento no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el email del profesor (texto):");
+            string email = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                Console.WriteLine("El email no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el teléfono del profesor (número entero):");
+            bool telefonoValido = int.TryParse(Console.ReadLine(), out int telefono);
+            if (!telefonoValido)
+            {
+                Console.WriteLine("El teléfono debe ser un número entero. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el sueldo del profesor (número decimal):");
+            bool sueldoValido = double.TryParse(Console.ReadLine(), out double sueldo);
+            if (!sueldoValido)
+            {
+                Console.WriteLine("El sueldo debe ser un número decimal. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese la fecha de contrato del profesor (formato: dd/MM/yyyy):");
+            bool fechaContratoValida = DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime fechaContrato);
+            if (!fechaContratoValida)
+            {
+                Console.WriteLine("La fecha de contrato debe tener el formato dd/MM/yyyy. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese los cursos del profesor (separados por coma):");
+            string cursosStr = Console.ReadLine();
+            List<string> cursos = cursosStr.Split(',').ToList();
+
+            bool todosLosCursosSonTexto = cursos.All(c => !string.IsNullOrWhiteSpace(c));
+            if (!todosLosCursosSonTexto)
+            {
+                Console.WriteLine("Todos los cursos deben ser texto. Intente nuevamente.");
+                continue;
+            }
+            Profesor nuevoProfesor = new Profesor
+            {
+                Id = id,
+                Nombre = nombre,
+                Apellidos = apellidos,
+                TipoDocumento = tipoDocumento,
+                NroDocumento = nroDocumento,
+                Email = email,
+                Telefono = telefono.ToString(),
+                Sueldo = sueldo,
+                FechaContrato = fechaContrato,
+                Cursos = cursos
+            };
+
+            Console.WriteLine("Profesor agregado exitosamente.");
+
+            Console.WriteLine(" ");
+
+            AgregarProfesor(nuevoProfesor);
+        }
+    }
+    public void AgregarEstudianteNuevo()
+    {
+        Console.Clear();
+
+        bool datosValidos = false;
+        while (!datosValidos)
+        {
+            Console.WriteLine("Ingrese el ID del estudiante (número entero):");
+            bool idValido = int.TryParse(Console.ReadLine(), out int id);
+            if (!idValido)
+            {
+                Console.WriteLine("El ID debe ser un número entero. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el nombre del estudiante (texto):");
+            string nombre = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.WriteLine("El nombre no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese los apellidos del estudiante (texto):");
+            string apellidos = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(apellidos))
+            {
+                Console.WriteLine("Los apellidos no pueden estar vacíos. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el tipo de documento del estudiante (texto):");
+            string tipoDocumento = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(tipoDocumento))
+            {
+                Console.WriteLine("El tipo de documento no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el número de documento del estudiante (texto):");
+            string nroDocumento = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nroDocumento))
+            {
+                Console.WriteLine("El número de documento no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el email del estudiante (texto):");
+            string email = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                Console.WriteLine("El email no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el teléfono del estudiante (número entero):");
+            bool telefonoValido = int.TryParse(Console.ReadLine(), out int telefono);
+            if (!telefonoValido)
+            {
+                Console.WriteLine("El teléfono debe ser un número entero. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese la fecha de nacimiento del estudiante (formato: dd/MM/yyyy):");
+            bool fechaNacimientoValida = DateOnly.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateOnly fechaNacimiento);
+            if (!fechaNacimientoValida)
+            {
+                Console.WriteLine("La fecha de nacimiento debe tener el formato dd/MM/yyyy. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese el curso actual del estudiante (texto):");
+            string cursoActual = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(cursoActual))
+            {
+                Console.WriteLine("El curso actual no puede estar vacío. Intente nuevamente.");
+                continue;
+            }
+
+            Console.WriteLine("Ingrese las calificaciones del estudiante (separadas por coma):");
+            string calificacionesStr = Console.ReadLine();
+            List<string> calificaciones = calificacionesStr.Split(',').ToList();
+            if (calificaciones.Count == 0)
+            {
+                Console.WriteLine("Las calificaciones no pueden estar vacías. Intente nuevamente.");
+                continue;
+            }
+
+            Estudiante nuevoEstudiante = new Estudiante
+            {
+                Id = id,
+                Nombre = nombre,
+                Apellidos = apellidos,
+                TipoDocumento = tipoDocumento,
+                NroDocumento = nroDocumento,
+                Email = email,
+                Telefono = telefono.ToString(),
+                FechaNacimiento = fechaNacimiento,
+                CursoActual = cursoActual,
+                Calificaciones = new List<double>(),
+            };
+
+            Console.WriteLine("Estudiante agregado exitosamente.");
+
+            Console.WriteLine(" ");
+
+            AgregarEstudiante(nuevoEstudiante);
+        }
     }
 
     // Mostrar Profesores
@@ -64,7 +286,10 @@ public class AdministradorApp
         Console.WriteLine("Estudiantes con promedio superior a 8.5:");
         foreach (var e in estudiantesConPromedioSuperior)
         {
-            Console.WriteLine(e);
+            Console.WriteLine($"Nombre: {e.Nombre}");
+            Console.WriteLine($"Apellidos: {e.Apellidos}");
+            Console.WriteLine($"Promedio: {e.CalcularPromedio()}");
+            Console.WriteLine();
         }
     }
 
@@ -73,14 +298,16 @@ public class AdministradorApp
         Console.Clear();
 
         var profesoresConMasCursos = Profesores
-            .GroupBy(x => x)
-            .Where(x => x.Count() > 1)
-            .Select(x => x.Key)
+            .Where(profesor => profesor.Cursos.Count > 1)
             .ToList();
+
         Console.WriteLine("Profesores con más de un curso:");
-        foreach (var p in profesoresConMasCursos)
+        foreach (var profesor in profesoresConMasCursos)
         {
-            Console.WriteLine(p);
+            Console.WriteLine($"Nombre: {profesor.Nombre}");
+            Console.WriteLine($"Apellidos: {profesor.Apellidos}");
+            Console.WriteLine($"Cursos: {string.Join(", ", profesor.Cursos)}");
+            Console.WriteLine();
         }
     }
 
@@ -213,7 +440,9 @@ public class AdministradorApp
         Console.WriteLine("Asignaturas unicas:");
         foreach (string c in asignaturasUnicas)
         {
-            Console.WriteLine(c);
+            Console.WriteLine($@"
+            " + c
+            );
         }
     }
 
@@ -260,12 +489,12 @@ public class AdministradorApp
         Console.Clear();
         foreach (Profesor p in Profesores)
         {
-            if (p.Cursos.Contains("Matemáticas"))
+            if (p.Cursos.Contains("Matematicas"))
             {
                 Console.WriteLine($@"
                 Nombre: {p.Nombre}
                 Apellidos: {p.Apellidos}
-                Cursos: {p.Cursos}
+                Cursos: {string.Join(", ", p.Cursos)}
                 ");
             }
         }
@@ -274,17 +503,16 @@ public class AdministradorApp
     public void CursosConMasDeTresCalificaciones()
     {
         Console.Clear();
-
-        var cursosConMasDeTresCalificaciones = Estudiantes
-            .SelectMany(x => x.CursoActual)
-            .GroupBy(x => x)
-            .Where(x => x.Count() > 3)
-            .Select(x => x.Key)
-            .ToList();
-        Console.WriteLine("Cursos con más de tres calificaciones:");
-        foreach (var c in cursosConMasDeTresCalificaciones)
+        foreach (Estudiante e in Estudiantes)
         {
-            Console.WriteLine(c);
+            if (e.Calificaciones.Count > 2)
+            {
+                Console.WriteLine($@"
+                Nombre: {e.Nombre}
+                Apellidos: {e.Apellidos}
+                Cursos: {string.Join(", ", e.CursoActual)}
+                ");
+            }
         }
     }
     public void AntiguedadPromedio()
@@ -299,7 +527,7 @@ public class AdministradorApp
     {
 
         Console.WriteLine(
-@"
+    @"
 ╔══════════════════════════════════════════════════╗
 ║                 MENU DE OPCIONES                 ║                   
 ║                    COLEGIO                       ║
@@ -325,7 +553,7 @@ public class AdministradorApp
 ║          19. Salir                               ║
 ╚══════════════════════════════════════════════════╝
             Opción: "
-);
+    );
 
 
 
