@@ -40,10 +40,10 @@ Console.WriteLine(
 ╔════════════════════════════════════════════════╗
 ║                  DETALLES                      ║
 ╚════════════════════════════════════════════════╝
-    Asignatura: {Asignatura}                      
-    Sueldo: {Sueldo}                               
-    FechaContrato: {FechaContrato}                 
-    Cursos: {string.Join(", ", Cursos)}            
+    Asignatura: {Asignatura}
+    Sueldo: {Sueldo}
+    FechaContrato: {FechaContrato}
+    Cursos: {string.Join(", ", Cursos)}
 ╚════════════════════════════════════════════════╝
 "
 );

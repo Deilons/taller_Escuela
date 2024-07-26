@@ -40,9 +40,9 @@ Console.WriteLine(
 ╔════════════════════════════════════════════════╗
 ║                  DETALLES                      ║
 ╚════════════════════════════════════════════════╝
-    Nombre Acudiente: {NombreAcudiente}            
-    Curso Actual: {CursoActual}                    
-    Fecha Nacimiento: {FechaNacimiento}            
+    Nombre Acudiente: {NombreAcudiente}
+    Curso Actual: {CursoActual}
+    Fecha Nacimiento: {FechaNacimiento}
     Calificaciones: {string.Join(", ", Calificaciones)}
 ╚════════════════════════════════════════════════╝"
 );

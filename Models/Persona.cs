@@ -33,13 +33,13 @@ public class Persona
 ╔════════════════════════════════════════════════╗
 ║                   INFORMACIÓN                  ║
 ╚════════════════════════════════════════════════╝
-    Id: {Id}                                       
-    Nombre: {Nombre}                               
-    Apellidos: {Apellidos}                         
-    TipoDocumento: {TipoDocumento}                 
-    NroDocumento: {NroDocumento}                   
-    Email: {Email}                                 
-    Teléfono: {Telefono}                          
+    Id: {Id}
+    Nombre: {Nombre}
+    Apellidos: {Apellidos}
+    TipoDocumento: {TipoDocumento}
+    NroDocumento: {NroDocumento}
+    Email: {Email}
+    Teléfono: {Telefono}
 ╚════════════════════════════════════════════════╝"
 );
 

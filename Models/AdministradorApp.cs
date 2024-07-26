@@ -524,14 +524,12 @@ public class AdministradorApp
     public void AntiguedadPromedio()
     {
         Console.Clear();
-
         double promedio = Profesores.Average(x => x.CalcularAntiguedad());
         Console.WriteLine($"Promedio de antiguedad: {promedio}");
     }
 
     public void InterfazVisual()
     {
-
         Console.WriteLine(
     @"
 ╔══════════════════════════════════════════════════╗
@@ -558,12 +556,6 @@ public class AdministradorApp
 ║          18. Antigüedad Promedio                 ║
 ║          19. Salir                               ║
 ╚══════════════════════════════════════════════════╝
-            Opción: "
-    );
-
-
-
-
+            Opción: ");
     }
-
 }
